@@ -68,6 +68,7 @@ class BFCalculation implements Runnable{
 	}
 
 	public void run() {
+		System.out.println("test5");
 		for(int i = beg ; i < end ; i++) {
 			Solution tempSolution = new Solution();
 			String currentSolutionArray = Integer.toBinaryString(i);

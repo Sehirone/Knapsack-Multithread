@@ -4,6 +4,7 @@
 package logic;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Instance class meant to contain basic information about Knapsack Problem. <br>
@@ -21,12 +22,21 @@ public class Instance {
 	 */
 	private int maximumWeight;
 	
+	
 	/**
 	 * Constructs default empty Instance object
 	 */
 	public Instance() {
 		items = new ArrayList<Item>();
 		maximumWeight = 0;
+	}
+	
+	public Instance(ArrayList<Item> items) {
+		this.items = items;
+	}
+	
+	public ArrayList<Item> getItems(){
+		return items;
 	}
 	
 	/**
@@ -38,6 +48,22 @@ public class Instance {
 	public Item getItem(int index) {
 		return items.get(index);
 	}
+	
+	public int[] getItemWeights() {
+		int[] itemWeights = new int[items.size()];
+		for (int i=0; i<items.size(); i++) {
+			itemWeights[i]=items.get(i).getWeight();
+		}
+		return itemWeights;
+	}
+	public float[] getItemValues() {
+		float[] itemValues = new float[items.size()];
+		for (int i=0; i<items.size(); i++) {
+			itemValues[i]=items.get(i).getValue();
+		}
+		return itemValues;
+	}
+	
 	
 	/**
 	 * Returns number of items contained within Instance
